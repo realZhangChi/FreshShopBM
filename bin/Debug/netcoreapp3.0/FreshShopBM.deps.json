@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.0": {
       "FreshShopBM/1.0.0": {
         "dependencies": {
+          "DevExpress.Blazor": "0.0.6-ctp",
           "Microsoft.NETCore.Platforms": "3.0.0-preview5.19224.8",
           "Newtonsoft.Json": "12.0.2",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
@@ -102,7 +103,7 @@
           "Microsoft.AspNetCore.StaticFiles": "3.0.0.0",
           "Microsoft.AspNetCore.WebSockets": "3.0.0.0",
           "Microsoft.AspNetCore.WebUtilities": "3.0.0.0",
-          "Microsoft.CSharp": "4.0.0.0",
+          "Microsoft.CSharp.Reference": "4.0.0.0",
           "Microsoft.Extensions.Caching.Abstractions": "3.0.0.0",
           "Microsoft.Extensions.Caching.Memory": "3.0.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.0.0.0",
@@ -312,6 +313,36 @@
           "FreshShopBM.dll": {}
         }
       },
+      "DevExpress.Blazor/0.0.6-ctp": {
+        "dependencies": {
+          "DevExtreme.AspNet.Data": "2.2.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/DevExpress.Blazor.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/DevExpress.Blazor.dll": {}
+        }
+      },
+      "DevExtreme.AspNet.Data/2.2.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.4.0": {},
       "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {},
       "Newtonsoft.Json/12.0.2": {
         "runtime": {
@@ -780,7 +811,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.CSharp/4.0.0.0": {
+      "Microsoft.CSharp.Reference/4.0.0.0": {
         "compile": {
           "Microsoft.CSharp.dll": {}
         },
@@ -2000,6 +2031,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DevExpress.Blazor/0.0.6-ctp": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v8X1xHfpocNceidGRpnCLnBP+l59YJ7iCKTcwE4Zzgx1mCagPlxlmQ+vuDpzxeziMGp7wvZRJ2ELPS08N0hz5A==",
+      "path": "devexpress.blazor/0.0.6-ctp",
+      "hashPath": "devexpress.blazor.0.0.6-ctp.nupkg.sha512"
+    },
+    "DevExtreme.AspNet.Data/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GDDFfoGl7bNCslaOlA2h4M5BoudaeP4gTdmmsLyx8FzZGuUkV4AzBt0+WgucBDUSdMcFcbZZggMb/V1yaqizgw==",
+      "path": "devextreme.aspnet.data/2.2.0",
+      "hashPath": "devextreme.aspnet.data.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vvVR/B08YVghQ4jHEloxqw2ZWzEGE1AOA5E0DioUM3ujbXz6FD3AfB/0Jl2ohJPd0nXYGwmPe1En6HTsSriq1A==",
+      "path": "microsoft.csharp/4.4.0",
+      "hashPath": "microsoft.csharp.4.4.0.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {
       "type": "package",
       "serviceable": true,
@@ -2394,7 +2446,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.CSharp/4.0.0.0": {
+    "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

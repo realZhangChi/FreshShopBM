@@ -3,10 +3,8 @@
 
 @using System.Net.Http.Headers
 @using Microsoft.AspNetCore.Http;
-<!-- @using Microsoft.AspNetCore.Blazor.Services -->
 @using FreshShopBM.Data.Services.RequestService
 @using FreshShopBM.Data.Models
-<!-- @using Cloudcrate.AspNetCore.Blazor.Browser.Storage -->
 
 @inject IRequestProvider IRequestProvider
 @inject IJSRuntime JsRuntime;
@@ -21,13 +19,13 @@
             <label>邮箱:</label>
             <InputText id="userName" bind-Value="@loginModel.Email" />
         </div>
-    <br/><br/>
-    <div>
+        <br/><br/>
+        <div>
             <label>密码:</label>
             <InputText id="passWord" bind-Value="@loginModel.Password" />
-    </div>
-    <br/><br/>
-    <button class="btn btn-primary" onclick="@LoginAsync">登录</button>
+        </div>
+        <br/><br/>
+        <button class="btn btn-primary" onclick="@LoginAsync">登录</button>
     </div>
 </EditForm>
 <style>
@@ -54,14 +52,19 @@
         try
         {
             var response = await IRequestProvider.PostAsync<TokenModel>(
-                "http://localhost:32770/Account/Login",
+                GlobalSetting.Instance.LoginEndpoint,
                 Json.Serialize(loginModel));
-            await JsRuntime.InvokeAsync<int>("allJsFunction.login", Json.Serialize(response));
-                uriHelper.NavigateTo("");
+            await JsRuntime.InvokeAsync<int>(
+                "FBMJsFunction.setLocalStorage",
+                "token",
+                Json.Serialize(response));
+
+            GlobalSetting.Instance.AccessToken = response.AccessToken;
+
+            uriHelper.NavigateTo("");
         }
         catch
         {
-
         }
     }
 }

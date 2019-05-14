@@ -48,3 +48,8 @@ c:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\FreshShopBM.Views.pdb
 C:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\FreshShopBM.csproj.CopyComplete
 c:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\FreshShopBM.dll
 c:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\FreshShopBM.pdb
+c:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\ProductManage.razor.g.cs
+c:\Users\Chi\FreshShopBM\bin\Debug\netcoreapp3.0\nuget.config
+c:\Users\Chi\FreshShopBM\bin\Debug\netcoreapp3.0\DevExpress.Blazor.dll
+c:\Users\Chi\FreshShopBM\bin\Debug\netcoreapp3.0\DevExtreme.AspNet.Data.dll
+c:\Users\Chi\FreshShopBM\obj\Debug\netcoreapp3.0\Razor\Pages\ProductManage.razor.g.cs

@@ -2,6 +2,40 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "DevExpress.Blazor/0.0.6-ctp": {
+        "type": "package",
+        "dependencies": {
+          "DevExtreme.AspNet.Data": "2.2.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/DevExpress.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/DevExpress.Blazor.dll": {}
+        }
+      },
+      "DevExtreme.AspNet.Data/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.0",
+          "Newtonsoft.Json": "11.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.4.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {
         "type": "package",
         "compile": {
@@ -23,6 +57,100 @@
     }
   },
   "libraries": {
+    "DevExpress.Blazor/0.0.6-ctp": {
+      "sha512": "v8X1xHfpocNceidGRpnCLnBP+l59YJ7iCKTcwE4Zzgx1mCagPlxlmQ+vuDpzxeziMGp7wvZRJ2ELPS08N0hz5A==",
+      "type": "package",
+      "path": "devexpress.blazor/0.0.6-ctp",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "devexpress.blazor.0.0.6-ctp.nupkg.sha512",
+        "devexpress.blazor.nuspec",
+        "lib/netcoreapp3.0/DevExpress.Blazor.dll",
+        "lib/netstandard2.0/DevExpress.Blazor.dll"
+      ]
+    },
+    "DevExtreme.AspNet.Data/2.2.0": {
+      "sha512": "GDDFfoGl7bNCslaOlA2h4M5BoudaeP4gTdmmsLyx8FzZGuUkV4AzBt0+WgucBDUSdMcFcbZZggMb/V1yaqizgw==",
+      "type": "package",
+      "path": "devextreme.aspnet.data/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "devextreme.aspnet.data.2.2.0.nupkg.sha512",
+        "devextreme.aspnet.data.nuspec",
+        "lib/net452/DevExtreme.AspNet.Data.dll",
+        "lib/net452/DevExtreme.AspNet.Data.xml",
+        "lib/netstandard2.0/DevExtreme.AspNet.Data.dll",
+        "lib/netstandard2.0/DevExtreme.AspNet.Data.xml"
+      ]
+    },
+    "Microsoft.CSharp/4.4.0": {
+      "sha512": "vvVR/B08YVghQ4jHEloxqw2ZWzEGE1AOA5E0DioUM3ujbXz6FD3AfB/0Jl2ohJPd0nXYGwmPe1En6HTsSriq1A==",
+      "type": "package",
+      "path": "microsoft.csharp/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.4.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {
       "sha512": "MEt1XzSndofi4WBoGaRcMZdy9rqNtZITVZev2PTtXizcNe4csoN7U638Q73M93I/LxroBAI1IB+6HQOuklkKrw==",
       "type": "package",
@@ -73,6 +201,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "DevExpress.Blazor >= 0.0.6-ctp",
       "Microsoft.NETCore.Platforms >= 3.0.0-preview5.19224.8",
       "Newtonsoft.Json >= 12.0.2"
     ]
@@ -96,6 +225,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+        "C:\\Users\\Chi\\FreshShopBM\\NuGet.Config",
         "C:\\Users\\Chi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -105,13 +235,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\Chi\\FreshShopBM\\nugets": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {},
+        "https://nuget.devexpress.com/early-access/api": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
@@ -127,6 +259,10 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "DevExpress.Blazor": {
+            "target": "Package",
+            "version": "[0.0.6-ctp, )"
+          },
           "Microsoft.NETCore.Platforms": {
             "suppressParent": "All",
             "target": "Package",

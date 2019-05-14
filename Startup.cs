@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FreshShopBM.Data;
 using FreshShopBM.Data.Services.RequestService;
-// using Cloudcrate.AspNetCore.Blazor.Browser.Storage;
+using FreshShopBM.Data.Services.ProductService;
 
 namespace FreshShopBM
 {
@@ -25,6 +25,7 @@ namespace FreshShopBM
             // services.AddStorage();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<IRequestProvider, RequestProvider>();
+            services.AddScoped<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
