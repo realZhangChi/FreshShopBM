@@ -1,0 +1,68 @@
+@layout LoginLayout
+@page "/login"
+
+@using System.Net.Http.Headers
+@using Microsoft.AspNetCore.Http;
+<!-- @using Microsoft.AspNetCore.Blazor.Services -->
+@using FreshShopBM.Data.Services.RequestService
+@using FreshShopBM.Data.Models
+<!-- @using Cloudcrate.AspNetCore.Blazor.Browser.Storage -->
+
+@inject IRequestProvider IRequestProvider
+@inject IJSRuntime JsRuntime;
+@inject IUriHelper uriHelper
+<!-- @inject LocalStorage Storage -->
+
+<EditForm Model="@loginModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="login">
+        <div>
+            <label>邮箱:</label>
+            <InputText id="userName" bind-Value="@loginModel.Email" />
+        </div>
+    <br/><br/>
+    <div>
+            <label>密码:</label>
+            <InputText id="passWord" bind-Value="@loginModel.Password" />
+    </div>
+    <br/><br/>
+    <button class="btn btn-primary" onclick="@LoginAsync">登录</button>
+    </div>
+</EditForm>
+<style>
+    .login {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        height:900px
+    }
+</style>
+
+
+@functions {
+    private LoginModel loginModel = new LoginModel();
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    private async void LoginAsync()
+    {
+        try
+        {
+            var response = await IRequestProvider.PostAsync<TokenModel>(
+                "http://localhost:32770/Account/Login",
+                Json.Serialize(loginModel));
+            await JsRuntime.InvokeAsync<int>("allJsFunction.login", Json.Serialize(response));
+                uriHelper.NavigateTo("");
+        }
+        catch
+        {
+
+        }
+    }
+}
+
