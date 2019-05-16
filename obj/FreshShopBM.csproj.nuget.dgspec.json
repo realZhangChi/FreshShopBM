@@ -67,14 +67,6 @@
               "target": "Package",
               "version": "[12.0.2, )"
             },
-            "Syncfusion.EJ2.AspNet.Core.RazorComponents": {
-              "target": "Package",
-              "version": "[17.1.0.47-beta, )"
-            },
-            "Telerik.UI.for.Blazor.Trial": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Tewr.Blazor.FileReader": {
               "target": "Package",
               "version": "[0.11.19128, )"
