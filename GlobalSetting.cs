@@ -17,6 +17,16 @@ public class GlobalSetting
 
     public string MainCategoryEndpoint { get; set; }
 
+    public string SubCategoryEndpoint { get; set; }
+
+    public string ProductsEndpoint { get; set; }
+
+    public string AddOrUpdateProductEndpoint { get; set; }
+
+    public string DeleteProductEndpoint { get; set; }
+
+    public string UploadImageEndpoint { get; set; }
+
     public string BaseEndpoint
     {
         get => _baseEndpoint;
@@ -31,8 +41,16 @@ public class GlobalSetting
     {
         var accoutBaseEndpoint = $"{BaseEndpoint}/Account";
         var categoryBaseEndpoint = $"{BaseEndpoint}/Categories";
+        var productBaseEndpoint = $"{BaseEndpoint}/Products";
+        var productBmBaseEndpoint = $"{BaseEndpoint}/ProductsBm";
 
         LoginEndpoint = $"{accoutBaseEndpoint}/Login";
         MainCategoryEndpoint = $"{categoryBaseEndpoint}/GetMainCategories";
+        SubCategoryEndpoint = $"{categoryBaseEndpoint}/GetSubCategoriesByMain";
+        ProductsEndpoint = $"{productBaseEndpoint}/GetProductList";
+        UploadImageEndpoint = $"{productBaseEndpoint}/UploadImage";
+        AddOrUpdateProductEndpoint = $"{productBmBaseEndpoint}/AddOrUpdateProduct";
+        DeleteProductEndpoint = $"{productBmBaseEndpoint}/DeleteProduct";
+
     }
 }

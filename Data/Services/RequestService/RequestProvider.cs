@@ -20,6 +20,30 @@ public class RequestProvider : IRequestProvider
         };
         _serializerSettings.Converters.Add(new StringEnumConverter());
     }
+
+    public async Task<TResult> PostAsync<TResult>(string uri, ByteArrayContent data, string token = "")
+    {
+        try
+        {
+            var httpClient = CreateHttpClient(token);
+
+            data.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await httpClient.PostAsync(uri, data);
+
+            await HandleResponse(response);
+            var serialized = await response.Content.ReadAsStringAsync();
+
+            var result = await Task.Run(() =>
+            JsonConvert.DeserializeObject<TResult>(serialized, _serializerSettings));
+
+            return result;
+        }
+        catch (WebException ex)
+        {
+            throw new WebException(ex.Message);
+        }
+    }
     public async Task<TResult> PostAsync<TResult>(string uri, string data, string token = "")
     {
         try

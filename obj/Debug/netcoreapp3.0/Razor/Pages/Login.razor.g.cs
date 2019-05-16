@@ -15,6 +15,8 @@ namespace FreshShopBM.Pages
     using Microsoft.AspNetCore.Components.Routing;
     using Microsoft.JSInterop;
     using FreshShopBM.Shared;
+    using Syncfusion.EJ2.RazorComponents;
+    using Syncfusion.EJ2.RazorComponents.Calendars;
     using System.Net.Http.Headers;
     using Microsoft.AspNetCore.Http;
     using FreshShopBM.Data.Services.RequestService;

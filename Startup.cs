@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using FreshShopBM.Data;
 using FreshShopBM.Data.Services.RequestService;
 using FreshShopBM.Data.Services.ProductService;
+using Blazor.FileReader;
 
 namespace FreshShopBM
 {
@@ -22,10 +23,12 @@ namespace FreshShopBM
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddTelerikBlazor();
             // services.AddStorage();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<IRequestProvider, RequestProvider>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IFileReaderService, FileReaderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

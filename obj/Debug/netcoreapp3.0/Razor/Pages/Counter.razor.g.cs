@@ -15,6 +15,8 @@ namespace FreshShopBM.Pages
     using Microsoft.AspNetCore.Components.Routing;
     using Microsoft.JSInterop;
     using FreshShopBM.Shared;
+    using Syncfusion.EJ2.RazorComponents;
+    using Syncfusion.EJ2.RazorComponents.Calendars;
     [Microsoft.AspNetCore.Components.Layouts.LayoutAttribute(typeof(MainLayout))]
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public class Counter : Microsoft.AspNetCore.Components.ComponentBase
