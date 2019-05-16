@@ -23,7 +23,6 @@ namespace FreshShopBM
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddTelerikBlazor();
             // services.AddStorage();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<IRequestProvider, RequestProvider>();

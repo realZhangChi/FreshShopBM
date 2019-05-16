@@ -1,0 +1,27 @@
+@page "/categoryManage"
+
+<div>
+<DxTabs bind-ActiveTabIndex=@ActiveTabIndex>
+    <DxTab Text="主分类"></DxTab>
+    <DxTab Text="子分类"></DxTab>
+</DxTabs>
+<div class="card demo-card dxbs-border-top-0 dxbs-border-radius-top-0">
+    <div class="card-body">
+        @switch (ActiveTabIndex)
+        {
+            case 0:
+                <b>"Home" tab is active.</b>
+                break;
+            case 1:
+                <i>"Products" tab is active.</i>
+                break;
+        }
+        </div>
+    </div>
+</div>
+
+@functions
+{
+    private int ActiveTabIndex;
+
+}

@@ -6,9 +6,6 @@
 @using FreshShopBM.Data.Models
 @using FreshShopBM.Data.Services.ProductService
 @using Blazor.FileReader
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Window
-@using Telerik.Blazor.Components.Button
 
 @inject IProductService ProductService
 @inject WeatherForecastService ForecastService
@@ -52,42 +49,7 @@
                     Caption="起购量"/>
                 <DxDataGridCommandColumn Width="150px"></DxDataGridCommandColumn>  
             </DxDataGrid>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>产品名</th>
-                        <th>单位</th>
-                        <th>单价</th>
-                        <th>起购量</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var product in _products)
-                    {
-                        <tr>
-                            <td>@product.ProductId.ToString()</td>
-                            <td>@product.ProductName</td>
-                            <td>@product.Unit</td>
-                            <td>@product.UnitPrice</td>
-                            <td>@product.MinOrderQuantity</td>
-                            <td>
-                                <button type="button" 
-                                    class="btn btn-primary ml-2" 
-                                    onclick="@(() =>ModifyBtnClicked(product.ProductId))">修改
-                                </button>
-
-                                <button type="button" 
-                                    class="btn btn-primary ml-2" 
-                                    data-id="@product.ProductId">删除
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
         }
-        <input type="file" id="fileUpload" ref="fileUpload" onchange="@UploadFile"/>
     </div>
 </div>
 
@@ -99,8 +61,6 @@
     private SubCategoryModel subCategory;
     private List<ProductsModel> _products;
     private ElementRef fileUpload;
-    private bool _subCategorySelected = false;
-    private bool WindowVisible;
 
     private string _token;
     protected override async Task OnInitAsync()
@@ -131,7 +91,6 @@
 
         _products = await ProductService.GetProductsAsync(_token, model.Id);
         StateHasChanged();
-        _subCategorySelected = true;
     }
 
     private void ModifyBtnClicked(Guid sender)
