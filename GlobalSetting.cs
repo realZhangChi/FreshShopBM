@@ -19,6 +19,8 @@ public class GlobalSetting
 
     public string SubCategoryEndpoint { get; set; }
 
+    public string SubCategoryByCompanyEndpoint { get; set; }
+
     public string ProductsEndpoint { get; set; }
 
     public string AddOrUpdateProductEndpoint { get; set; }
@@ -56,6 +58,7 @@ public class GlobalSetting
         LoginEndpoint = $"{accoutBaseEndpoint}/Login";
         MainCategoryEndpoint = $"{categoryBaseEndpoint}/GetMainCategories";
         SubCategoryEndpoint = $"{categoryBaseEndpoint}/GetSubCategoriesByMain";
+        SubCategoryByCompanyEndpoint = $"{categoryBaseEndpoint}/GetSubCategories";
         ProductsEndpoint = $"{productBaseEndpoint}/GetProductList";
         UploadImageEndpoint = $"{productBaseEndpoint}/UploadImage";
         AddOrUpdateProductEndpoint = $"{productBmBaseEndpoint}/AddOrUpdateProduct";

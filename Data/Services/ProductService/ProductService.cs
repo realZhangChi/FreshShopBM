@@ -31,9 +31,9 @@ namespace FreshShopBM.Data.Services.ProductService
             );
         }
 
-        public async Task<SubCategoryModel[]> GetSubCategoriesAsync(string token, Guid mainCategoryId)
+        public async Task<List<SubCategoryModel>> GetSubCategoriesAsync(string token, Guid mainCategoryId)
         {
-            return await _iRequstProvider.PostAsync<SubCategoryModel[]>(
+            return await _iRequstProvider.PostAsync<List<SubCategoryModel>>(
                 GlobalSetting.Instance.SubCategoryEndpoint,
                 JsonConvert.SerializeObject(mainCategoryId.ToString()),
                 token

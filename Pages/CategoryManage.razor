@@ -1,27 +1,144 @@
 @page "/categoryManage"
 
-<div>
-<DxTabs bind-ActiveTabIndex=@ActiveTabIndex>
-    <DxTab Text="主分类"></DxTab>
-    <DxTab Text="子分类"></DxTab>
-</DxTabs>
-<div class="card demo-card dxbs-border-top-0 dxbs-border-radius-top-0">
-    <div class="card-body">
-        @switch (ActiveTabIndex)
-        {
-            case 0:
-                <b>"Home" tab is active.</b>
-                break;
-            case 1:
-                <i>"Products" tab is active.</i>
-                break;
-        }
-        </div>
-    </div>
-</div>
+@using FreshShopBM.Data.Models
+@using FreshShopBM.Data.Services.ProductService
+@using FreshShopBM.Data.Services.CategoryService
+@using Telerik.Blazor.Components.TabStrip
+@using Telerik.Blazor.Components.Grid
+@using Telerik.Blazor.Components.DropDownList
+
+@inject IProductService iProductService
+@inject ICategoryService iCategoryService
+
+<TelerikTabStrip>
+    <TelerikTab Title="主分类">
+        <TelerikGrid Data=@_mainCategories EditMode="inline"
+             Height="500"
+             Pageable="true" PageSize=@_pageSize>
+            <TelerikGridToolBar>
+                <TelerikGridCommandButton Command="Add" Icon="add">新增</TelerikGridCommandButton>
+            </TelerikGridToolBar>
+            <TelerikGridColumns>
+                <TelerikGridColumn Field=@nameof(MainCategoryModel.Id) Editable="false" />
+                <TelerikGridColumn Field=@nameof(MainCategoryModel.Name)  Title="名称"/>
+                <TelerikGridCommandColumn>
+                    <TelerikGridCommandButton Command="Edit" Icon="edit">编辑</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Delete" Icon="delete">删除</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">更新</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">取消</TelerikGridCommandButton>
+                </TelerikGridCommandColumn>
+            </TelerikGridColumns>
+            <TelerikGridEvents>
+                <EventsManager OnUpdate=@UpdateMainItem OnDelete=@DeleteMainItem OnCreate=@CreateMainItem>
+                </EventsManager>
+            </TelerikGridEvents>
+        </TelerikGrid>
+    </TelerikTab>
+    <TelerikTab Title="子分类">
+        <TelerikGrid Data=@_subCategories EditMode="inline"
+             Height="500"
+             Pageable="true" PageSize=@_pageSize>
+            <TelerikGridToolBar>
+                <TelerikGridCommandButton Command="Add" Icon="add">新增</TelerikGridCommandButton>
+            </TelerikGridToolBar>
+            <TelerikGridColumns>
+                <TelerikGridColumn Field=@nameof(SubCategoryModel.Id) Editable="false" />
+                <TelerikGridColumn Field=@nameof(SubCategoryModel.Name)  Title="名称"/>
+                <TelerikGridCommandColumn>
+                    <TelerikGridCommandButton Command="Edit" Icon="edit">编辑</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Delete" Icon="delete">删除</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">更新</TelerikGridCommandButton>
+                    <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">取消</TelerikGridCommandButton>
+                </TelerikGridCommandColumn>
+            </TelerikGridColumns>
+            <TelerikGridEvents>
+                <EventsManager OnUpdate=@UpdateSubItem OnDelete=@DeleteSubItem OnCreate=@CreateSubItem>
+                </EventsManager>
+            </TelerikGridEvents>
+        </TelerikGrid>
+    </TelerikTab>
+</TelerikTabStrip>
 
 @functions
 {
-    private int ActiveTabIndex;
+    private List<MainCategoryModel> _mainCategories;
+    private List<SubCategoryModel> _subCategories;
+    private int _pageSize = 15;
+    private string _token;
 
+    protected override async Task OnInitAsync()
+    {
+        _token = GlobalSetting.Instance.AccessToken;
+        _mainCategories = await iProductService.GetMainCategoriesAsync(_token);
+        _subCategories = await iProductService.GetSubCategoriesAsync(_token, Guid.Empty);
+    }
+
+    private async void CreateMainItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as MainCategoryModel;
+
+        if(await iCategoryService.AddOrUpdateMainCategoryAsync(_token, argsItem))
+        {
+            _mainCategories.Add(argsItem);
+        }
+
+    }
+
+    private async void DeleteMainItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as MainCategoryModel;
+
+        if(await iCategoryService.DeleteMainCategoryAsync(_token, argsItem.Id))
+        {
+            _mainCategories.Remove(argsItem);
+        }
+    }
+
+    private async void UpdateMainItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as MainCategoryModel;
+        var item = _mainCategories.FirstOrDefault(c => c.Id == argsItem.Id);
+
+        if (item != null)
+        {
+            item.Name = argsItem.Name;
+        }
+
+        await iCategoryService.AddOrUpdateMainCategoryAsync(_token, item);
+    }
+
+    private async void CreateSubItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as SubCategoryModel
+        ;
+
+        if(await iCategoryService.AddOrUpdateSubCategoryAsync(_token, argsItem))
+        {
+            _subCategories.Add(argsItem);
+        }
+
+    }
+
+    private async void DeleteSubItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as SubCategoryModel;
+
+        if(await iCategoryService.DeleteSubCategoryAsync(_token, argsItem.Id))
+        {
+            _subCategories.Remove(argsItem);
+        }
+    }
+
+    private async void UpdateSubItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as SubCategoryModel;
+        var item = _subCategories.FirstOrDefault(c => c.Id == argsItem.Id);
+
+        if (item != null)
+        {
+            item.Name = argsItem.Name;
+        }
+
+        await iCategoryService.AddOrUpdateSubCategoryAsync(_token, item);
+    }
 }

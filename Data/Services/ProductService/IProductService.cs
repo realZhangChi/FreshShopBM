@@ -10,7 +10,7 @@ namespace FreshShopBM.Data.Services.ProductService
     {
          Task<List<MainCategoryModel>> GetMainCategoriesAsync(string token);
 
-         Task<SubCategoryModel[]> GetSubCategoriesAsync(string token, Guid mainCategoryId);
+         Task<List<SubCategoryModel>> GetSubCategoriesAsync(string token, Guid mainCategoryId);
 
          Task<List<ProductsModel>> GetProductsAsync(string token, Guid subCategoryId);
 
